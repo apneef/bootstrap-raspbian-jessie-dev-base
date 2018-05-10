@@ -35,13 +35,13 @@ Orient the board so that the micro-SD port aligns with the slot on the case bott
 
 Gently insert the Pi into the case bottom. Slide the end opposite the USB ports under the plastic tabs at the corners of the base bottom and let the board lay down into the case bottom. Don't push on it; it doesn't snap in. 
 
-<img src="images/placing-pi-in-case.png" width="300"/>
+<img src="images/placing-pi-in-case.png" width="400"/>
 
 Slide the case body over the unit and onto the case bottom. They fit snugly together, but they don't snap. Be gentle. 
 
-<img src="images/case-body-attached.png" width="300"/>
+<img src="images/case-body-attached.png" width="400"/>
 
 Fit the top of the case onto the body with the "leaves" of the Raspberry cut-out pointing toward the end where the USB ports are located. 
 
-<img src="images/fully-assembled.png" width="300"/>
+<img src="images/fully-assembled.png" width="400"/>
 
