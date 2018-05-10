@@ -1,0 +1,73 @@
+#!/bin/bas
+#------------------------------------------------------------
+# Bootstrap an instance of Raspbin Jessie to be a base for
+# provisioning a lightweight software development environment
+# on a Raspberry Pi.
+#
+# Run this script as user 'pi'.
+# Assumes fresh install of Raspbian Jessie.
+#
+# Version 0.1.0 10 May 2018
+#------------------------------------------------------------
+
+printf "Updating the distribution\n" 
+sudo apt update && sudo apt -y dist-upgrade 
+
+printf "Creating ~/bin directory and prepending it to PATH\n"
+mkdir -p "$HOME/bin"
+echo 'export PATH="$HOME/bin:$PATH"' >> "$HOME/.bashrc"
+. "$HOME/.bashrc"
+
+printf "Creating ~/bin/gui script to start X sessions\n"
+cp --preserve=mode ./assets/gui "$HOME/bin"
+
+printf "Installing fundamental developent packages\n"
+sudo apt install -y software-properties-common
+sudo apt install -y raspberrypi-kernel-headers
+sudo apt install -y build-essential
+
+printf "Installing and configuring NeoVim...\n"
+sudo apt install -y neovim
+
+printf "  ...creating directories for NeoVim configuration\n"
+mkdir -p "$HOME/.config/nvim/autoload"
+mkdir -p "$HOME/.config/nvim/bundle"
+mkdir -p "$HOME/.config/nvim/after/indent"
+mkdir -p "$HOME/.config/nvim/pack/vendor/start"
+
+printf "Installing NeoVim plugin: pathogen\n"
+get_pathogen="curl -LSso $HOME/.config/nvim/autoload/pathogen.vim https://tpo.pe/pathogen.vim"
+eval $get_pathogen
+
+printf "Installing NeoVim plugin: deoplete\n"
+git clone git://github.com/Shougo/deoplete.nvim.git "$HOME/.config/nvim/bundle/deoplete"
+
+printf "Installing NeoVim plugin: neomake\n"
+git clone git://github.com/neomake/neomake "$HOME/.config/nvim/bundle/neomake"
+
+printf "Installing NeoVim plugin: nerdtree\n"
+git clone git://github.com/scrooloose/nerdtree.git "$HOME/.config/nvim/bundle/nerdtree"
+
+printf "Installing NeoVim plugin: nerdtree-git-plugin\n"
+git clone git://github.com/Xuyuanp/nerdtree-git-plugin.git "$HOME/.config/nvim/bundle/nerdtree-git-plugin"
+
+printf "Installing NeoVim plugin: bash-support\n"
+git clone git://github.com/WolfgangMehner/bash-support.git "$HOME/.config/nvim/bundle/bash-support"
+
+printf "Installing NeoVim plugin: c-support\n"
+git clone git://github.com/WolfgangMehner/c-support.git "$HOME/.config/nvim/bundle/c-support"
+
+printf "Installing NeoVim plugin: python-mode\n"
+git clone git://github.com/klen/python-mode.git "$HOME/.config/nvim/bundle/python-mode"
+
+printf "Installing NeoVim plugin: vim-ruby\n"
+git clone git://github.com/vim-ruby/vim-ruby.git "$HOME/.config/nvim/bundle/vim-ruby"
+
+printf "Copying NeoVim indentation support files\n"
+cp ./neovim/after/indent/* "$HOME/.config/nvim/after/indent/."
+
+printf "Adding Spacegray color scheme to NeoVim\n"
+git clone git://github.com/ajh17/Spacegray.vim "$HOME/.config/nvim/pack/vendor/start/Spacegray"
+
+printf "Copying NeoVim init.vim file\n"
+cp ./neovim/init.vim "$HOME/.config/nvim/." 
