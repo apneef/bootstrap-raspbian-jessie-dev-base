@@ -4,7 +4,7 @@
 
 What's in the CanaKit box?
 
-![contents](images/canakit-contents-annotated.png | width=400)
+<img src="images/canakit-contents-annotated.png" width="400"/>
 
 The Raspberry Pi 3B+ comes with Ethernet and wireless adapters, three USB ports, and an HDMI port. That makes it a pretty good base for a general-purpose desktop computer.
 
