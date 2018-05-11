@@ -17,7 +17,7 @@ Safety first: Put on your anti-static wristband. The photo shows a common ground
 <img src="images/anti-static.png" width="300"/>
 
 One of the most challenging steps in assembling the unit is the removal of the paper backing from the self-adhesive heat sinks. Good luck.
-<img src="images/heat-sinks-1.png | width=400
+<img src="images/heat-sinks-1.png" width="400"/>
 
 The larger heat sink goes on top of the Broadcom BCM2835 CPU. That's the relatively large square chip near the center of the board. The smaller heat sink goes on top of the SMSC LAN9514 USB Ethernet Controller. That's the smaller square chip located near the USB ports. Align the heat sinks carefully because they will stick up through openings in the case body.
 
