@@ -76,3 +76,9 @@ Some aliases and bash functions are copied to ~/.bash_aliases. Read that file to
 #### 5.3. Local help file
 
 The file ```help.html``` is copied to ~/ by the bootstrap script. It's designed to display with the lynx browser, which is present on the Raspbian Jessie system. You can type ```help``` from any directory to see the help (that's one of the aliases). The help page shows custom key bindings for Openbox and NeoVim, and has some links to online help in using NeoVim and Nano.
+
+# 6. General tips.
+
+You can create screenshots and view graphics files using two command-line programs that are already installed with Raspbian Jessie. The program ```scrot``` takes a screenshot, and the program ```gpicview``` is a graphical file viewer. Consult ```man scrot``` and ```man gpicview``` for usage details.
+
+
