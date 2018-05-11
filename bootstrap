@@ -7,7 +7,7 @@
 # Run this script as user 'pi'.
 # Assumes fresh install of Raspbian Jessie.
 #
-# Version 0.1.0 10 May 2018
+# Version 0.1.1 11 May 2018
 #------------------------------------------------------------
 
 printf "Updating the distribution\n" 
@@ -20,6 +20,12 @@ echo 'export PATH="$HOME/bin:$PATH"' >> "$HOME/.bashrc"
 
 printf "Creating ~/bin/gui script to start X sessions\n"
 cp --preserve=mode ./assets/gui "$HOME/bin"
+
+printf "Copying local help.html file to $HOME\n"
+cp ./assets/help.html ~/.
+
+printf "Copying .bash_aliases file to $HOME\n"
+cp ./assets/.bash_aliases ~/.
 
 printf "Installing fundamental developent packages\n"
 sudo apt install -y software-properties-common

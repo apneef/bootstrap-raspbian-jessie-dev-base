@@ -61,3 +61,18 @@ cd bootstrap-raspbian-jessie-dev-base
 
 After the bootstrap script completes successfully, your Pi is provisioned as the base for a software development environment. However, no specific language support has been added to NeoVim at this point. You know which languages you will work with, so you will have to look for the compilers, dependency managers, and NeoVim plugins you require.
 
+### 5. Customizations
+
+The bootstrap script installs some custom elements in the environment. They are:
+
+#### 5.1. gui script 
+
+Raspbian Jessie comes with a custom LXDE desktop environment, a plain vanilla LXDE desktop environment, and Openbox. Our aim is to use Openbox primarily, but the other desktops can also be useful. The instance is configured to boot to a command line. To bring up one of the three window environments, you can run a script named ```gui``` that is copied to ~/bin by the bootstrap script. It will present a menu from which you can select the window environment you wish to start.
+
+#### 5.2. Aliases and bash functions
+
+Some aliases and bash functions are copied to ~/.bash_aliases. Read that file to see what they are.
+
+#### 5.3. Local help file
+
+The file ```help.html``` is copied to ~/ by the bootstrap script. It's designed to display with the lynx browser, which is present on the Raspbian Jessie system. You can type ```help``` from any directory to see the help (that's one of the aliases). The help page shows custom key bindings for Openbox and NeoVim, and has some links to online help in using NeoVim and Nano.
